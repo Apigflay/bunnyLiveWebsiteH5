@@ -74,9 +74,9 @@
         "template" : "h5index.html",
         "router" : {
             "mode" : "hash",
-            "base" : "/h5/"
+            "base" : "/bunny/h5/"
         },
         "title" : "bunnyLiveWebsiteH5",
-        "domain" : "https://www.bunnylive.me/"
+        "domain" : "buny.vn"
     }
 }
