@@ -2,35 +2,24 @@
   <div class="productintroductionPage">
     <div class="strY" v-if="language==0">
         Giới thiệu sản phẩm<br><br>
-
 Bunny Live là ứng dụng tiên phong trong phát trực tiếp - phát trên nền tảng ứng dụng điện thoại thông minh giúp người dùng kết nối với hàng trăm ngàn Idol livestream <br>
+ Bunny live là niềm đam mê của chúng tôi, đó là lý do tại sao chúng tôi luôn cố gắng hết sức để cải thiện Bunny Live liên tục để mang đến cho người dùng trải nghiệm hàng đầu . <br>
 
- Bunny live là niềm đam mê của chúng tôi, đó là lý do tại sao chúng tôi luôn cố gắng hết sức để cải thiện Bunny Live liên tục để mang đến cho người dùng trải nghiệm tốt nhất.<br>
+ <br>[𝐁] -𝐁𝐥𝐢𝐬𝐬𝐟𝐮𝐥 <br>
+ Bạn sẽ luôn có khoảng thời gian tuyệt vời và hạnh phúc với Bunny Live.  Bạn có thể phát trực tiếp những khoảnh khắc thú vị của mình và trở thành một Idol hoặc tham gia các buổi phát trực tiếp của các Idol khác để trò chuyện với họ 
 
+ <br>[𝐔] - 𝐔𝐧𝐢𝐪𝐮𝐞 <br>
+ Bunny Live là ứng dụng điện thoại thông minh và độc đáo , không chỉ mang lại sự tương tác giữa người dùng và Idol livestream mà còn giữa Idol livestream với nhau 
 
- <br>[𝐁] -𝐁𝐥𝐢𝐬𝐬𝐟𝐮𝐥<br>
+ <br>[𝐍] - 𝐍𝐢𝐜𝐞 <br>
+ Chúng tôi không chỉ quan tâm đến việc tạo một ứng dụng để kết nối người dùng và Idol livestream phát trực tiếp, mà còn muốn giúp người dùng khám phá tài năng của họ và cho họ thấy những người khác để giúp họ tạo nên sự tự tin
 
- Bạn sẽ luôn có khoảng thời gian tuyệt vời và hạnh phúc nhất với Bunny Live.  Bạn có thể phát trực tiếp những khoảnh khắc thú vị của mình và trở thành một Idol hoặc tham gia các buổi phát trực tiếp của các Idol khác để trò chuyện với họ <br>
+ <br>[𝐍] - 𝐍𝐮𝐦𝐛𝐞𝐫𝐨𝐮𝐬 <br>
+ Bunny Live hiện có sẵn ở hơn 150 quốc gia, có 100.000 thần tượng phát trực tiếp và 1.000.000 người dùng mới mỗi tháng.  Chúng tôi luôn cố gắng làm hết sức mình để cộng đồng Bunny sống phát triển không ngừng với tốc độ vượt trội 
 
+ <br>[𝐘] - 𝐘𝐨𝐮𝐧𝐠 <br>
+ Bunny Live trẻ trung và được truyền cảm hứng từ tuổi trẻ, đó là lý do tại sao chúng tôi có thể cung cấp cho bạn trải nghiệm hàng đầu cho tâm hồn trẻ của bạn.  Hãy đến với chúng tôi và chúng tôi sẽ mang đến cho bạn trải nghiệm độc đáo với các tính năng cực kỳ dễ thương và các phiên phát trực tiếp đầy màu sắc.
 
- <br>[𝐔] - 𝐔𝐧𝐢𝐪𝐮𝐞<br>
-
- Bunny Live là ứng dụng điện thoại thông minh duy nhất và độc nhất , không chỉ mang lại sự tương tác giữa người dùng và Idol livestream mà còn giữa Idol livestream với nhau <br>
-
-
- <br>[𝐍] - 𝐍𝐢𝐜𝐞<br>
-
- Chúng tôi không chỉ quan tâm đến việc tạo một ứng dụng để kết nối người dùng và Idol livestream phát trực tiếp, mà còn muốn giúp người dùng khám phá tài năng của họ và cho họ thấy những người khác để giúp họ tạo nên sự tự tin<br>
-
-
- <br>[𝐍] - 𝐍𝐮𝐦𝐛𝐞𝐫𝐨𝐮𝐬<br>
-
- Bunny Live hiện có sẵn ở hơn 150 quốc gia, có 100.000 thần tượng phát trực tiếp và 1.000.000 người dùng mới mỗi tháng.  Chúng tôi luôn cố gắng làm hết sức mình để cộng đồng Bunny sống phát triển không ngừng với tốc độ nhanh nhất.<br>
-
-
- <br>[𝐘] - 𝐘𝐨𝐮𝐧𝐠<br>
-
- Bunny Live trẻ trung và được truyền cảm hứng từ tuổi trẻ, đó là lý do tại sao chúng tôi có thể cung cấp cho bạn trải nghiệm tốt nhất cho tâm hồn trẻ của bạn.  Hãy đến với chúng tôi và chúng tôi sẽ mang đến cho bạn trải nghiệm độc đáo với các tính năng cực kỳ dễ thương và các phiên phát trực tiếp đầy màu sắc.<br>
 
 
     </div>

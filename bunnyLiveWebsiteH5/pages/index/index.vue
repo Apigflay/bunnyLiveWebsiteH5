@@ -23,10 +23,19 @@
 		<div class="swiperArea">
             <div class="name">Bunny Live</div>
             <div class="name2">{{swiperStr[language]}}</div>
-			<div class="swiperbox">
+			<div class="swiperboxl">
 				<swiper class="swiper" :indicator-dots="true" :autoplay="false" :interval="2000" :duration="500" :circular="true">
-					<swiper-item v-for="(item,index) in swiperData" :key="index">
-						<image class="imgss" :src="item" mode=""></image>
+					<!-- <swiper-item class="swiper-si" v-for="(item,index) in swiperData" :key="index">
+						<image class="imgssl" :src="item" mode=""></image>
+					</swiper-item> -->
+					<swiper-item class="swiper-si">
+						<image class="imgssl" src="../../static/imgs/ele-m-img-01.png" mode=""></image>
+					</swiper-item>
+					<swiper-item class="swiper-si">
+						<image class="imgssl" src="../../static/imgs/ele-m-img-02.png" mode=""></image>
+					</swiper-item>
+					<swiper-item class="swiper-si">
+						<image class="imgssl" src="../../static/imgs/ele-m-img-03.png" mode=""></image>
 					</swiper-item>
 				</swiper>
 			</div>
@@ -45,8 +54,8 @@
 	export default {
 		data() {
 			return {
-				menuList:[['Trang Chủ','Giới thiệu sản phẩm',' Trả',' Chính sách bảo mật',' Sự phản đối của người dùng','Liên lạc chúng tôi'],
-				['Home','Product Introduction ','Pay','Privacy policy','User Agressment','Contect Us']
+				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','điều khoản sử dụng','Những điều cần biết','Liên lạc chúng tôi'],
+				['Home','Product Introduction ','','Privacy policy','User Agreement','Contact Us']
 				],
 				swiperData:['../../static/imgs/ele-m-img-01.png','../../static/imgs/ele-m-img-02.png','../../static/imgs/ele-m-img-03.png'],
 				swiperStr:['Vui mỗi ngày ','Have fun everyday'],
@@ -86,7 +95,7 @@
 						});
 					  break;
 					case 2:
-					   window.location.href ="http://pay.buny.vn/"; rel="external nofollow";
+					   // window.location.href ="http://pay.buny.vn/"; rel="external nofollow";
 					  break;
 					case 3:
 					 uni.navigateTo({
@@ -117,13 +126,13 @@ page{
 .indexPages{
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
+	// display: flex;
+	// flex-direction: column;
 }
 .navsArea{
 	width: 750rpx;
 	height: 120rpx;
-	background: blue;
+	background: #1e2557;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -194,10 +203,10 @@ page{
 	}
 }
 .swiperArea{
-	flex:1;
+	// flex:1;
 	background-image: linear-gradient(#FA5062, #F95266,#F073B2);
 	display: flex;
-   flex-direction: column;
+    flex-direction: column;
 	.name,.name2{
 	   height: 60rpx;
 	   line-height: 60rpx;
@@ -210,49 +219,54 @@ page{
    }
    .name2{
 	   text-indent: 8%;
-		font-size: 20px;
-   }
-      .btnArea{
+		font-size: 20rpx;
+	}
+    .btnArea{
        width:100%;
-       height: 50px;
+       height: 100rpx;
        display: flex;
        align-items: center;
        justify-content: center;
        .img1{
-           height: 38px;
-           width: 75px;
+           height: 76rpx;
+           width: 150rpx;
            background: #fff;
-           border-radius: 19px;
-            margin-right: 10px;
+           border-radius: 38rpx;
+            margin-right: 20rpx;
            img{
-               height: 55px;
-               margin-top:-7px;
+               height: 110rpx;
+               margin-top:-14rpx;
+			   margin-left: 22rpx;
            }
        }
        .img2{
-           height: 38px;
-           width: 75px;
+           height: 76rpx;
+           width: 150rpx;
            background: #fff;
-           border-radius: 19px;
-           margin-left: 10px;
+           border-radius: 38rpx;
+           margin-left: 20rpx;
            img{
-               height: 55px;
-               margin-top:-7px;
+               height: 110rpx;
+               margin-top:-14rpx;
+			   margin-left: 22rpx;
            }
        }
-   }
-   .swiperbox{
-	   flex: 1;
+	}
+   .swiperboxl{
+	   // flex: 1;
+	   height: 879rpx;
+	   // width: 100%;
 	   .swiper{
 		   height: 100%;
-		   .uni-swiper-item{
+		   .swiper-si{
 			   text-align: center;
-			  
+			   .imgssl{
+			   			height: 879rpx;
+						width: 454rpx;
+			   			// margin: auto;
+			   }
 		   }
-		    .imgss{
-		   			   height: 100%;
-					   margin-left: 50rpx;
-		   }
+		    
 		   
 	   }
    }
