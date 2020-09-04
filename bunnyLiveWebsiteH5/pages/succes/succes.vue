@@ -21,41 +21,17 @@
 			      <div class="menuPer" :class="'menuPer'+index" @click="goPages(index)" v-for="(item,index) in menuList[language]" :key="index">{{item}}</div>   
 			 </div>
 		</div>
-		<div class="swiperArea">
-            <div class="name">Bunny Live</div>
-            <div class="name2">{{swiperStr[language]}}</div>
-			<div class="swiperboxl">
-				<swiper class="swiper" :indicator-dots="true" :autoplay="false" :interval="2000" :duration="500" :circular="true">
-					<!-- <swiper-item class="swiper-si" v-for="(item,index) in swiperData" :key="index">
-						<image class="imgssl" :src="item" mode=""></image>
-					</swiper-item> -->
-					<swiper-item class="swiper-si">
-						<image class="imgssl" src="../../static/imgs/ele-m-img-01.png" mode=""></image>
-					</swiper-item>
-					<swiper-item class="swiper-si">
-						<image class="imgssl" src="../../static/imgs/ele-m-img-02.png" mode=""></image>
-					</swiper-item>
-					<swiper-item class="swiper-si">
-						<image class="imgssl" src="../../static/imgs/ele-m-img-03.png" mode=""></image>
-					</swiper-item>
-				</swiper>
+		<!-- success -->
+		<div class="succesArea">
+			<img class="success" src="../../static/imgs/success.png" alt="">
+			<p class="p">Thông tin đã điền đầy đủ, vui lòng tải APP để hoàn thành bước cuối cùng</p>
+			<div class="suDownArea">
+				<div class="div" @click="goDown(1)"><img class="btn" src="../../static/imgs/ele-btn-bg-ios.png" alt=""></div>
+				<div class="div" @click="goDown(2)"><img class="btn" src="../../static/imgs/ele-btn-bg-google.png" alt=""></div>
 			</div>
-			<div class="btnArea">
-                <span class="img1" @click="goDown(1)"><img src="../../static/imgs/ele-btn-bg-ios.png" alt=""></span>
-                <span class="img2" @click="goDown(2)"><img src="../../static/imgs/ele-btn-bg-google.png" alt=""></span>
-            </div>
 		</div>
-		<div class="footerArea">
-			copyright@2019.CONG TY TNHH BUNY
-		</div>
-		<div class="conArea">
-			Công Ty TNHH BUNNY<br>
-			Địa chỉ : B01 , Tầng 1 , 624 Lạc Long Quân , Phường 5 , Quận 11<br>
-			Sđt : 028.66503686<br>
-			Email :bunycompany@gmail.com<br>
-			Người chịu trách nhiệm nội dung: Lâm Bửu Oanh<br>
-			Giấy phép MXH số 206/GP-BTTTT do Bộ TTTT cấp ngày 14/5/2020
-		</div>
+
+		
 	</view>
 </template>
 
@@ -99,6 +75,11 @@
 			goPages:function(pageId){
 				  console.log(pageId)
 				  switch(pageId){
+					case 0:
+					  uni.navigateTo({
+					  	url: '/pages/index/index'
+					  });
+					  break;
 					case 1:
 						uni.navigateTo({
 							url: '/pages/productintroduction/productintroduction'
@@ -218,7 +199,7 @@ page{
 		justify-content: space-between;
 		color:#fff;
 		.menuPer0{
-			color:#fc2c5d;
+			// color:#fc2c5d;
 			margin-left: 10rpx;
 		}
 		.menuPer5{
@@ -226,86 +207,42 @@ page{
 		}
 	}
 }
-.swiperArea{
-	// flex:1;
-	background-image: linear-gradient(#FA5062, #F95266,#F073B2);
-	display: flex;
-    flex-direction: column;
-	.name,.name2{
-	   height: 60rpx;
-	   line-height: 60rpx;
-	   text-align: left;
-	   color: #fff;
-   }
-   .name{
-		font-size: 16px;
-	   text-indent: 5%;
-   }
-   .name2{
-	   text-indent: 8%;
-		font-size: 20rpx;
+.succesArea{
+	width: 750rpx;
+	.success{
+		height: 100rpx;
+		width: 100rpx;
+		margin-left: 325rpx;
+		margin-top: 300rpx;
 	}
-    .btnArea{
-       width:100%;
-       height: 100rpx;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       .img1{
-           height: 76rpx;
-           width: 150rpx;
-           background: #fff;
-           border-radius: 38rpx;
-            margin-right: 20rpx;
-           img{
-               height: 110rpx;
-               margin-top:-14rpx;
-			   margin-left: 22rpx;
-           }
-       }
-       .img2{
-           height: 76rpx;
-           width: 150rpx;
-           background: #fff;
-           border-radius: 38rpx;
-           margin-left: 20rpx;
-           img{
-               height: 110rpx;
-               margin-top:-14rpx;
-			   margin-left: 22rpx;
-           }
-       }
+	.p{
+		width: 94%;
+		padding: 0 3%;
+		text-align: center;
+		line-height: 30px;
 	}
-   .swiperboxl{
-	   // flex: 1;
-	   height: 879rpx;
-	   // width: 100%;
-	   .swiper{
-		   height: 100%;
-		   .swiper-si{
-			   text-align: center;
-			   .imgssl{
-			   			height: 879rpx;
-						width: 454rpx;
-			   			// margin: auto;
-			   }
-		   }
-		    
-		   
-	   }
-   }
-}
-.footerArea{
-	height: 100rpx;
-	font-size: 16rpx;
-	line-height: 100rpx;
-	text-align: center;
-}
-.conArea{
-	text-align: center;
-	width: 90%;
-	padding: 0 5%;
-	font-size: 16rpx;
+	.suDownArea{
+		display: flex;
+		justify-content: center;
+		margin-top: 60rpx;
+		.div{
+			height: 76rpx;
+			width: 150rpx;
+			border-radius: 38rpx;
+			height: 76rpx;
+			position: relative;
+			background: #cecece;
+			margin:0 40rpx;
+			cursor: pointer;
+			.btn{
+				position: absolute;
+				width: 100rpx;
+				top: -10rpx;
+				left: 24rpx;
+				height: 100rpx;
+			}
+		}
+	}
 }
 
 </style>
