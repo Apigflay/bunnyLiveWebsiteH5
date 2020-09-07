@@ -35,7 +35,7 @@ I. LIÊN HỆ VỚI CHÚNG TÔI / BÁO CÁO VI PHẠM
 Nếu bạn có bất kỳ câu hỏi hoặc nhận xét nào về Chính sách này hoặc các thông lệ về quyền riêng tư của chúng tôi, hoặc để báo cáo bất kỳ vi phạm Chính sách hoặc lạm dụng ứng dụng, dịch vụ của chúng tôi hoặc trang web, vui lòng liên hệ với chúng tôi tại bunycompany@gmail.com.
 J. THAY ĐỔI CHÍNH SÁCH QUYỀN RIÊNG TƯ NÀY
 Chính sách Bảo mật của chúng tôi có thể thay đổi theo thời gian, chúng tôi sẽ đăng bất kỳ thay đổi nào trên trang này, vì vậy vui lòng kiểm tra định kỳ. Chúng tôi có thể cung cấp cho bạn các hình thức thông báo bổ sung về các sửa đổi hoặc cập nhật nếu thích hợp trong các trường hợp.
-Nếu bạn không đồng ý với bất kỳ sửa đổi nào đối với Chính sách này, cách duy nhất của bạn là ngừng ngay lập tức tất cả việc sử dụng tất cả Ứng dụng, Dịch vụ và Trang web. Việc bạn tiếp tục sử dụng bất kỳ Ứng dụng, Dịch vụ hoặc Trang web nào sau khi đăng bất kỳ sửa đổi nào đối với Chính sách này sẽ cấu thành việc bạn chấp nhận Chính sách đã sửa đổi. Xin lưu ý rằng không nhân viên hoặc đại lý nào của chúng tôi có quyền thay đổi bất kỳ Chính sách nào của chúng tôi.
+Nếu bạn không đồng ý với bất kỳ sửa đổi nào đối với Chính sách này, cách của bạn là ngừng ngay lập tức tất cả việc sử dụng tất cả Ứng dụng, Dịch vụ và Trang web. Việc bạn tiếp tục sử dụng bất kỳ Ứng dụng, Dịch vụ hoặc Trang web nào sau khi đăng bất kỳ sửa đổi nào đối với Chính sách này sẽ cấu thành việc bạn chấp nhận Chính sách đã sửa đổi. Xin lưu ý rằng không nhân viên hoặc đại lý nào của chúng tôi có quyền thay đổi bất kỳ Chính sách nào của chúng tôi.
 
 
     </div>

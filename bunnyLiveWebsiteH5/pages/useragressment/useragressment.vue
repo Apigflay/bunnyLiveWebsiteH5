@@ -29,7 +29,7 @@ b. Bạo lực quá mức, bao gồm bất kỳ nội dung nào liên quan đế
 c. Mô tả, khuyến khích hoặc hỗ trợ việc tự tử hoặc tự làm hại bản thân;<br><br>
 d. Tin đồn, thông tin sai lệch hoặc gây hiểu nhầm;<br><br>
 e. Lời nói hoặc hành vi thù địch, bao gồm bất kỳ nội dung nào cổ vũ phân biệt chủng tộc, khủng bố, phân biệt tuổi tác hoặc phân biệt giới tính;<br><br>
-f. Tục tĩu, báng bổ hoặc bất kỳ nội dung nào có thể xúc phạm những người theo tín ngưỡng nhất định hoặc liên quan đến tôn giáo;<br><br>
+f. Tục tĩu, báng bổ hoặc bất kỳ nội dung nào có thể xúc phạm những người theo tín ngưỡng hoặc liên quan đến tôn giáo;<br><br>
 g. Liên quan đến cờ bạc, nạo phá thai, vũ khí hoặc các chủ đề có tính bùng nổ cao khác;<br><br>
 h. Lăng mạ, bôi nhọ hoặc quấy rối người khác hoặc nhóm người khác;<br><br>
 Tôi. thư rác, thư rác hoặc quảng cáo không được yêu cầu khác;
