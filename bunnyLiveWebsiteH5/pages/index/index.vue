@@ -49,7 +49,7 @@
 			copyright@2019.CONG TY TNHH BUNY
 		</div>
 		<div class="conArea">
-			Công Ty TNHH BUNNY<br>
+			<!-- Công Ty TNHH BUNNY<br> -->
 			Địa chỉ : B01 , Tầng 1 , 624 Lạc Long Quân , Phường 5 , Quận 11<br>
 			Sđt : 028.66503686<br>
 			Email :bunycompany@gmail.com<br>

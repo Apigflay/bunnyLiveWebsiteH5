@@ -32,37 +32,39 @@
 			<!-- 2 生日-->
 			<div class="per2 per">
 				<span class="lable">Ngày tháng năm sinh :</span>
-				<picker class="lable_input" mode="date" :value="date" start="1900-01-01" :end="endDate" @change="bindDateChange">
+				<!-- <picker class="lable_input" mode="date" :value="date" start="1900-01-01" :end="endDate" @change="bindDateChange">
 					<view class="uni-input">{{date}}</view>
-				</picker>
+				</picker> -->
+				<input class="lable_input" type="text" v-model="birthPT2" value="" @focus='getBirthday(2)'/>
 			</div>
 			<!-- <p class="per2 per_p" v-if="p2==false">Vui lòng điền lại</p> -->
 			<!-- 3 证件类型-->
 			<div class="per3 per">
 				<span class="lable">loại chứng chỉ :</span>
 				<select class="lable_input" v-model="input3" placeholder=""  @blur="getInputMsg(3)">
-					<option label="Thẻ căn cước" value="1"></option>
-					<option label="hộ chiếu" value="2"></option>
+					<option label="Thẻ căn cước CMND" value="Thẻ căn cước CMND"></option>
+					<option label="hộ chiếu" value="hộ chiếu"></option>
 				</select>
 			</div>
 			<!-- <p class="per3 per_p" v-if="p3==false">Thông tin tên quá dài! Vui lòng điền lại</p> -->
 			<!-- 4 证件号-->
 			<div class="per4 per">
-				<span class="lable">Số văn kiện :</span>
+				<span class="lable">Số:</span>
 				<input class="lable_input" v-model.trim="input4" placeholder="" maxlength='30' @input="getInputMsg(4)"></input>
 			</div>
 			<p class="per4 per_p" v-if="p4==false">Vui lòng điền lại</p>
 			<!-- 5 签发日期-->
 			<div class="per5 per">
 				<span class="lable">Ngày cấp :</span>
-				<picker class="lable_input" mode="date" :value="date" start="1900-01-01" :end="endDate" @change="bindDateChange">
+				<!-- <picker class="lable_input" mode="date" :value="date" start="1900-01-01" :end="endDate" @change="bindDateChange">
 					<view class="uni-input">{{date}}</view>
-				</picker>
+				</picker> -->
+				<input class="lable_input" type="text" v-model="birthPT5" value="" @focus='getBirthday(5)'/>
 			</div>
 			<!-- <p class="per5 per_p" v-if="p5==false">Vui lòng điền lại</p> -->
 			<!-- 6 签发地-->
 			<div class="per5 per">
-				<span class="lable">Nơi phát hành :</span>
+				<span class="lable">Nơi cấp  :</span>
 				<input class="lable_input" v-model.trim="input6" maxlength='30' placeholder="" @input="getInputMsg(6)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p6==false">Vui lòng điền lại</p>
@@ -82,7 +84,33 @@
 			<!-- 9 -->
 			<div class="nextBtn" @click="goNext">Bước tiếp theo</div>
 		</div>
-		
+		<!-- 选择生日弹框 -->
+		<view class="pT_box" v-if="pT_AreaShow">
+			<!-- <view class="uni-padding-wrap">
+				<view class="uni-title">เดท：{{pT_year}}ปี{{pT_month}}ดวงจันทร์{{pT_day}}วันอาทิตย์</view>   
+			</view> -->
+			<view class="pT_black">
+				
+			</view>
+			<view class="pT_sure">
+				<text class="textL" @click="goHidePT_Area">hủy bỏ</text>
+				<text class="textR" @click="goHidePT_Area">xác nhận</text>
+			</view>
+			<picker-view class="pT_choose" v-if="pT_visible" :indicator-style="pT_indicatorStyle" :value="pT_value" @change="bindPT_Change">
+				
+				
+				<picker-view-column>
+					<view class="item" v-for="(item,index) in pT_years" :key="index">{{item}}Năm</view>
+				</picker-view-column>
+				<picker-view-column>
+					<view class="item" v-for="(item,index) in pT_months" :key="index">{{item}}Tháng</view>
+				</picker-view-column>
+				<picker-view-column>
+					<view class="item" v-for="(item,index) in pT_days" :key="index">{{item}}Ngày</view>
+				</picker-view-column>
+			</picker-view>
+		</view>
+		<!-- 选择生日弹框 -->
 	</view>
 </template>
 
@@ -92,6 +120,22 @@
 			const currentDate = this.getDate({
 				format: true
 			})
+			const pT_date = new Date()
+			const pT_years = []
+			const pT_year = pT_date.getFullYear()
+			const pT_months = []
+			const pT_month = pT_date.getMonth() + 1
+			const pT_days = []
+			const pT_day = pT_date.getDate()
+			for (let i = 1919; i <= pT_date.getFullYear(); i++) {
+				pT_years.push(i)
+			}
+			for (let i = 1; i <= 12; i++) {
+				pT_months.push(i)
+			}
+			for (let i = 1; i <= 31; i++) {
+				pT_days.push(i)
+			}
 			return {
 				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','điều khoản sử dụng','Những điều cần biết','Liên lạc chúng tôi'],
 				['Home','Product Introduction ','','Privacy policy','User Agreement','Contact Us']
@@ -104,7 +148,7 @@
 				p1:true,//false  错误  true 不显示
 				inputBirth:'',//生日
 				p2:true,//false  错误  true 不显示
-				input3:'1',//证件类型
+				input3:'Thẻ căn cước CMND',//证件类型
 				p3:true,//false  错误  true 不显示
 				input4:'',//证件号
 				p4:true,//false  错误  true 不显示
@@ -117,6 +161,20 @@
 				input8:'',//地址
 				p8:true,//false  错误  true 不显示
 				date: currentDate,
+				// ----
+				pT_years,
+				pT_year,
+				pT_months,
+				pT_month,
+				pT_days,
+				pT_day,
+				pT_value: [9999, pT_month - 1, pT_day - 1],
+				pT_visible: true,
+				pT_indicatorStyle: `height: ${Math.round(uni.getSystemInfoSync().screenWidth/(750/100))}px;`,
+				pT_AreaShow:false,//选择生日显示隐藏
+				birthPT2:'',//taiguo生日
+				birthPT5:'',//taiguo生日
+				cliId:0,//moren  0  2 为第二个点击  5 为
 			};
 		},
 		 computed:{
@@ -130,15 +188,15 @@
 				return this.getDate('end');
 			},
 			allIs(){
-				return this.inputName!=''&&this.input4!=''&&this.input6!=''&&this.input7!=''&&this.input8!='';
+				return this.inputName!=''&&this.birthPT2!=''&&this.input4!=''&&this.birthPT5!=''&&this.input6!=''&&this.input7!=''&&this.input8!='';
 			}
 		},
 		methods:{
-			bindDateChange: function(e) {
-				console.log(e.target.value)
-				this.date = e.target.value
-			},
-			getDate(type) {
+			// bindDateChange: function(e) {
+			// 	console.log(e.target.value)
+			// 	this.date = e.target.value
+			// },
+			getDate(type) {//
 				const date = new Date();
 				let year = date.getFullYear();
 				let month = date.getMonth() + 1;
@@ -272,21 +330,31 @@
 				}
 			},
 			goNext:function(){
-
-
+				// console.log(this.birthPT2)
+				// console.log(this.birthPT5)
+				console.log(this.allIs)
+				console.log(this.inputName,'----------1')
+				console.log(this.birthPT2,'----------2')
+				console.log(this.input3,'----------3')
+				console.log(this.input4,'----------4')
+				console.log(this.birthPT5,'----------5')
+				console.log(this.input6,'----------6')
+				console.log(this.input7,'----------7')
+				console.log(this.input8,'----------8')
+		
 				
 				
 				if(this.p1==true&&this.p4==true&&this.p6==true&&this.p7==true&&this.p8==true&&this.allIs==true){
-					uni.showToast({
-						icon:'none',
-						title: 'Thông tin đã điền đầy đủ, vui lòng tải APP để hoàn thành bước cuối cùng',
-						duration: 2000,
-						complete(com){
-							uni.navigateTo({
-								url: '/pages/succes/succes'
-							});
-						}
-					});
+					// uni.showToast({
+					// 	icon:'none',
+					// 	title: 'Thông tin đã điền đầy đủ, vui lòng tải APP để hoàn thành bước cuối cùng',
+					// 	duration: 2000,
+					// 	complete(com){
+					// 		uni.navigateTo({
+					// 			url: '/pages/succes/succes'
+					// 		});
+					// 	}
+					// });
 				}else{
 					uni.showToast({
 						icon:'none',
@@ -295,6 +363,71 @@
 					});
 				}
 				
+			},
+			goHidePT_Area:function(){//隐藏选择日期弹框
+				if(this.pT_month<10){
+					this.pT_month='0'+this.pT_month;
+				}
+				if(this.pT_day<10){
+					this.pT_day='0'+this.pT_day;
+				}
+				
+				if(this.cliId==2){
+					this.birthPT2=this.pT_year+'-'+this.pT_month+'-'+this.pT_day;
+				}else if(this.cliId==5){
+					this.birthPT5=this.pT_year+'-'+this.pT_month+'-'+this.pT_day;
+				}
+				if(this.pT_AreaShow==true){
+					this.pT_AreaShow=false;
+				}
+				// var year =this.pT_year+18;
+				// var now = new Date().getFullYear();
+				// console.log(now)
+				// console.log(year)
+				// if(now>year){
+				// 	this.red = false;
+				// }else{
+				// 	this.red = true;
+				// }
+			},
+			bindPT_Change: function (e) {//年月日处理
+				console.log(e)
+				const val = e.detail.value
+				this.pT_year = this.pT_years[val[0]]
+				this.pT_month = this.pT_months[val[1]]
+				if(this.pT_month==4||this.pT_month==6||this.pT_month==9||this.pT_month==11){//4 6 9 11 月
+					if(this.pT_days[val[2]]==31){
+						this.pT_day = 30
+					}else{
+						this.pT_day = this.pT_days[val[2]]
+					}
+				}else if(this.pT_month==2){//2月单独处理
+					if(this.pT_years[val[0]]%4==0&&this.pT_years[val[0]]%100!=0){//闰年
+						if(this.pT_days[val[2]]==30||this.pT_days[val[2]]==31){
+							this.pT_day = 29
+						}else{
+							this.pT_day = this.pT_days[val[2]]
+						}
+					}else{//不是闰年
+						if(this.pT_days[val[2]]==29||this.pT_days[val[2]]==30||this.pT_days[val[2]]==31){
+							this.pT_day = 28
+						}else{
+							this.pT_day = this.pT_days[val[2]]
+						}
+					}
+				}else{// 1 3 5 7 8 10 12月
+					this.pT_day = this.pT_days[val[2]]
+				}
+				
+			},
+			getBirthday:function(id){
+				console.log(id)
+				this.pT_AreaShow=true;
+				if(id==2){
+					this.cliId=2;
+				}else if(id==5){
+					this.cliId=5;
+				}
 			}
 		},
 	}
@@ -440,5 +573,53 @@ page{
             text-align: center;
         }
 }
-
+// 
+.pT_box{
+	// height: 980rpx;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 903;
+	display: flex;
+	flex-direction: column;
+	.pT_black{
+		flex: 1;
+		// height: 500rpx;
+		width: 100%;
+		// background: rgba(0,0,0,0.4);
+		background: #000;
+		opacity: 0.7;
+	}
+	.pT_sure{
+		height: 80rpx;
+		width: 100%;
+		position:relative;
+		background: #fff;
+		.textR{
+			line-height: 100%;
+			position: absolute;
+			bottom: 0rpx;
+			right: 60rpx;
+			padding: 5rpx;
+			color: blue;
+			
+		}
+		.textL{
+			line-height: 100%;
+			position: absolute;
+			bottom: 0rpx;
+			left: 60rpx;
+			padding: 5rpx;
+			
+		}
+	}
+	.pT_choose{
+		height: 500rpx;
+		width: 100%;
+		background: #fff;
+		text-align: center;
+	}
+}
 </style>

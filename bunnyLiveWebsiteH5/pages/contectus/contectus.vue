@@ -1,13 +1,15 @@
 <template>
   <div class="contectusPage">
-      <h4>Bunny Live</h4>
+      <h4>Tên Công Ty : BUNY LIVE </h4>
 
       <p v-if="language==0" class="p2">Hợp tác kinh doanh:</p>
       <p v-if="language==0" class="p3">contact@bunnylive.me</p>
-      <p v-if="language==0" class="p4">Phản hồi:</p>
+      <p v-if="language==0" class="p4">Email:</p>
       <p v-if="language==0" class="p5">contact@bunnylive.me</p>
       <p v-if="language==0" class="p6">Địa chỉ công ty:</p>
-      <p v-if="language==0" class="p7">Lầu 2 , 624 Lạc Long Quân P5 Q11</p>
+      <p v-if="language==0" class="p7">Lầu 1 , 624 Lạc Long Quân P5 Q11</p>
+	  <p v-if="language==0" class="p6">SĐT:</p>
+      <p v-if="language==0" class="p7">7834732505</p>
 
       <p v-if="language==1" class="p2">Business Cooperation:</p>
       <p v-if="language==1" class="p3">contact@bunnylive.me</p>
@@ -15,6 +17,8 @@
       <p v-if="language==1" class="p5">contact@bunnylive.me</p>
       <p v-if="language==1" class="p6">Company Address:</p>
       <p v-if="language==1" class="p7">2 Floor ,624 Lạc Long Quân P5 Q11 HCM</p>
+	  <p v-if="language==1" class="p6">Telephone number:</p>
+      <p v-if="language==1" class="p7">7834732505</p>
 
 
   </div>
