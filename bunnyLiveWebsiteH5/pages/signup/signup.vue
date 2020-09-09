@@ -71,7 +71,7 @@
 			<!-- 7 email-->
 			<div class="per5 per">
 				<span class="lable">email :</span>
-				<input class="lable_input" v-model.trim="input7" placeholder="" @input="getInputMsg(7)"></input>
+				<input class="lable_input" v-model.trim="input7" placeholder="" @input="getInputMsg(7,$event)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p7==false">Vui lòng điền lại</p>
 			<!-- 8 地址-->
@@ -80,8 +80,13 @@
 				<input class="lable_input" v-model.trim="input8" placeholder="" @input="getInputMsg(8)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p8==false">Vui lòng điền lại</p>
-			
-			<!-- 9 -->
+			<!-- 9 电话-->
+			<div class="per5 per">
+				<span class="lable">SĐT :</span>
+				<input class="lable_input" maxlength='10' v-model.trim="input9" placeholder="" @input="getInputMsg(9,$event)"></input>
+			</div>
+			<p class="per5 per_p" v-if="p9==false">Vui lòng điền lại</p>
+			<!-- 10 -->
 			<div class="nextBtn" @click="goNext">Bước tiếp theo</div>
 		</div>
 		<!-- 选择生日弹框 -->
@@ -111,6 +116,42 @@
 			</picker-view>
 		</view>
 		<!-- 选择生日弹框 -->
+		<view class="beSureWrap" v-if="centerDialogVisible==true">
+			<div class="beSureArea">
+				<div class="dialogDiv">
+				    Họ và tên :{{this.inputName}}
+				</div>
+				<div class="dialogDiv">
+				    Ngày tháng năm sinh :{{this.birthPT2}}
+				</div>
+				<div class="dialogDiv">
+				    loại chứng chỉ :{{this.input3}}
+				</div>
+				<div class="dialogDiv">
+				    Số :{{this.input4}}
+				</div>
+				<div class="dialogDiv">
+				    Ngày cấp :{{this.birthPT5}}
+				</div>
+				<div class="dialogDiv">
+				    Nơi cấp :{{this.input6}}
+				</div>
+				<div class="dialogDiv">
+				    email :{{this.input7}}
+				</div>
+				<div class="dialogDiv">
+				    Địa chỉ :{{this.input8}}
+				</div>
+				<div class="dialogDiv">
+				    SĐT :{{this.input9}}
+				</div>
+				 <div class="dialog-footer">
+				    <button class="btn1" @click="goPageSuccess(1)">hủy bỏ</button>
+				    <button class="btn2" type="primary" @click="goPageSuccess(2)">xác nhận</button>
+				</div>
+			</div>
+           
+		</view>
 	</view>
 </template>
 
@@ -160,6 +201,8 @@
 				p7:true,//false  错误  true 不显示
 				input8:'',//地址
 				p8:true,//false  错误  true 不显示
+				input9:'',//电话
+				p9:true,//false  错误  true 不显示
 				date: currentDate,
 				// ----
 				pT_years,
@@ -175,6 +218,7 @@
 				birthPT2:'',//taiguo生日
 				birthPT5:'',//taiguo生日
 				cliId:0,//moren  0  2 为第二个点击  5 为
+				centerDialogVisible:false,
 			};
 		},
 		 computed:{
@@ -188,7 +232,7 @@
 				return this.getDate('end');
 			},
 			allIs(){
-				return this.inputName!=''&&this.birthPT2!=''&&this.input4!=''&&this.birthPT5!=''&&this.input6!=''&&this.input7!=''&&this.input8!='';
+				return this.inputName!=''&&this.birthPT2!=''&&this.input4!=''&&this.birthPT5!=''&&this.input6!=''&&this.input7!=''&&this.input8!=''&&this.input9!='';
 			}
 		},
 		methods:{
@@ -267,7 +311,8 @@
 					url: '/pages/signup/signup'
 				});
 			},
-			getInputMsg:function(id){
+			getInputMsg:function(id,event){
+				
 				if(id==1){
 					if(this.inputName.length>5){
 						this.p1=true;
@@ -312,9 +357,11 @@
 					}
 				}
 				else if(id==7){
-					console.log(this.input7)
+					this.input7=event.detail.value;
+					// console.log(this.input7)
+					console.log(event.detail.value)
 					var reg = new RegExp("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$"); 
-					var test =reg.test(this.input7);
+					var test =reg.test(event.detail.value);
 					if(test==true){
 						this.p7=true;
 					}else{
@@ -328,23 +375,34 @@
 						this.p8=false;
 					}
 				}
+				else if(id==9){
+					this.input9=event.detail.value;
+					// console.log(this.input9)
+					console.log(event.detail.value)
+					if(event.detail.value.length<10){
+						this.p9=false;
+					}else{
+						this.p9=true;
+					}
+				}
 			},
 			goNext:function(){
 				// console.log(this.birthPT2)
 				// console.log(this.birthPT5)
-				console.log(this.allIs)
-				console.log(this.inputName,'----------1')
-				console.log(this.birthPT2,'----------2')
-				console.log(this.input3,'----------3')
-				console.log(this.input4,'----------4')
-				console.log(this.birthPT5,'----------5')
-				console.log(this.input6,'----------6')
-				console.log(this.input7,'----------7')
-				console.log(this.input8,'----------8')
+				// console.log(this.allIs)
+				// console.log(this.inputName,'----------1')
+				// console.log(this.birthPT2,'----------2')
+				// console.log(this.input3,'----------3')
+				// console.log(this.input4,'----------4')
+				// console.log(this.birthPT5,'----------5')
+				// console.log(this.input6,'----------6')
+				// console.log(this.input7,'----------7')
+				// console.log(this.input8,'----------8')
 		
 				
 				
-				if(this.p1==true&&this.p4==true&&this.p6==true&&this.p7==true&&this.p8==true&&this.allIs==true){
+				if(this.p1==true&&this.p4==true&&this.p6==true&&this.p7==true&&this.p8==true&&this.p9==true&&this.allIs==true){
+					this.centerDialogVisible=true;
 					// uni.showToast({
 					// 	icon:'none',
 					// 	title: 'Thông tin đã điền đầy đủ, vui lòng tải APP để hoàn thành bước cuối cùng',
@@ -427,6 +485,23 @@
 					this.cliId=2;
 				}else if(id==5){
 					this.cliId=5;
+				}
+			},
+			goPageSuccess:function(id){
+				if(id==1){
+					this.centerDialogVisible=false;
+				}else if(id==2){
+					this.centerDialogVisible=false;
+					uni.showToast({
+						icon:'none',
+						title: 'Thông tin đã điền đầy đủ, vui lòng tải APP để hoàn thành bước cuối cùng',
+						duration: 2000,
+						complete(com){
+							uni.navigateTo({
+								url: '/pages/succes/succes'
+							});
+						}
+					});
 				}
 			}
 		},
@@ -622,4 +697,34 @@ page{
 		text-align: center;
 	}
 }
+.beSureWrap{
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	// background: #000;
+	// opacity: 0.9;
+	background: rgba(0,0,0,0.7);
+	.beSureArea{
+		margin: auto;
+		margin-top: 200rpx;
+		width: 620rpx;
+		background: #fff;
+		opacity: 1;
+		border-radius: 20px;
+		min-height: 500rpx;
+		padding: 50rpx 30rpx;
+		.dialogDiv{
+	        line-height: 60rpx;
+	        font-size: 32rpx;
+			color: #000;
+	    }
+		.dialog-footer{
+			display: flex;
+			margin-top: 50rpx;
+		}
+	}
+}
+
 </style>
