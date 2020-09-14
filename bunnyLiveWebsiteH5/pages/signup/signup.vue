@@ -23,10 +23,10 @@
 		</div>
 		<!-- sign up -->
 		<div class="signArea">
-			<!-- 1 姓名 -->
+			<!-- 1 姓名  .trim -->
 			<div class="per1 per">
 				<span class="lable">Họ và tên :</span>
-				<input class="lable_input" v-model.trim="inputName" maxlength='30' placeholder="" @input="getInputMsg(1)"></input>
+				<input class="lable_input" v-model="inputName" maxlength='30' placeholder="" @input="getInputMsg(1)"></input>
 			</div>
 			<p class="per1 per_p" v-if="p1==false">Vui lòng điền lại</p>
 			<!-- 2 生日-->
