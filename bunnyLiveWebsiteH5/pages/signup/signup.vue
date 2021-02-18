@@ -65,7 +65,7 @@
 			<!-- 6 签发地-->
 			<div class="per5 per">
 				<span class="lable">Nơi cấp  :</span>
-				<input class="lable_input" v-model.trim="input6" maxlength='30' placeholder="" @input="getInputMsg(6)"></input>
+				<input class="lable_input" v-model="input6" maxlength='30' placeholder="" @input="getInputMsg(6)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p6==false">Vui lòng điền lại</p>
 			<!-- 7 email-->
@@ -77,7 +77,7 @@
 			<!-- 8 地址-->
 			<div class="per5 per">
 				<span class="lable">Địa chỉ :</span>
-				<input class="lable_input" v-model.trim="input8" placeholder="" @input="getInputMsg(8)"></input>
+				<input class="lable_input" v-model="input8" placeholder="" @input="getInputMsg(8)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p8==false">Vui lòng điền lại</p>
 			<!-- 9 电话-->
@@ -86,8 +86,18 @@
 				<input class="lable_input" maxlength='10' v-model.trim="input9" placeholder="" @input="getInputMsg(9,$event)"></input>
 			</div>
 			<p class="per5 per_p" v-if="p9==false">Vui lòng điền lại</p>
+			<!-- 新增checkbox -->
+			<div class="checkBoxArea" >
+				<checkbox-group @change="chooseCheckBox">
+					<checkbox value="" :checked="checkBoxStatus"  />
+				</checkbox-group>
+				<!-- <input class="input" type="checkbox" v-model="checkBoxStatus" @change="chooseCheckBox"> -->
+				<span class="span1">Tôi đã xem và đồng ý với điều khoản sử dụng</span>
+				<span class="span2" @click="goThreePage">điều khoản sử dụng</span>
+			</div>
 			<!-- 10 -->
-			<div class="nextBtn" @click="goNext">Bước tiếp theo</div>
+			<div v-if="btnClickStatus==0"  class="nextBtn huiNextBtn">Bước tiếp theo</div>
+			<div v-if="btnClickStatus==1" class="nextBtn" @click="goNext">Bước tiếp theo</div>
 		</div>
 		<!-- 选择生日弹框 -->
 		<view class="pT_box" v-if="pT_AreaShow">
@@ -178,8 +188,8 @@
 				pT_days.push(i)
 			}
 			return {
-				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','điều khoản sử dụng','Những điều cần biết','Liên lạc chúng tôi'],
-				['Home','Product Introduction ','','Privacy policy','User Agreement','Contact Us']
+				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','Những điều cần biết','điều khoản sử dụng','Liên lạc chúng tôi'],
+				['Home','Product Introduction ','','User Agreement','Privacy policy','Contact Us']
 				],
 				swiperData:['../../static/imgs/ele-m-img-01.png','../../static/imgs/ele-m-img-02.png','../../static/imgs/ele-m-img-03.png'],
 				swiperStr:['Vui mỗi ngày ','Have fun everyday'],
@@ -219,6 +229,9 @@
 				birthPT5:'',//taiguo生日
 				cliId:0,//moren  0  2 为第二个点击  5 为
 				centerDialogVisible:false,
+				
+				btnClickStatus:0,//默认为0 灰色  当check选中 变红
+				checkBoxStatus:false,//
 			};
 		},
 		 computed:{
@@ -290,14 +303,20 @@
 					   // window.location.href ="http://pay.buny.vn/"; rel="external nofollow";
 					  break;
 					case 3:
-					 uni.navigateTo({
-					 	url: '/pages/privacypolicy/privacypolicy'
-					 });
+					uni.navigateTo({
+						url: '/pages/useragressment/useragressment'
+					});
+					 // uni.navigateTo({
+					 // 	url: '/pages/privacypolicy/privacypolicy'
+					 // });
 					  break;
 					case 4:
-						uni.navigateTo({
-							url: '/pages/useragressment/useragressment'
-						});
+					uni.navigateTo({
+						url: '/pages/privacypolicy/privacypolicy'
+					});
+						// uni.navigateTo({
+						// 	url: '/pages/useragressment/useragressment'
+						// });
 					  break;
 					case 5:
 						uni.navigateTo({
@@ -503,6 +522,31 @@
 						}
 					});
 				}
+			},
+			chooseCheckBox:function(e){//
+			// this.checkBoxStatus=true;
+				if(this.checkBoxStatus==true){
+					this.checkBoxStatus=false;
+					this.btnClickStatus=0;
+					
+				}else{
+					this.checkBoxStatus=true;
+					this.btnClickStatus=1;
+				}
+			console.log(this.checkBoxStatus)
+				console.log(e)
+			        // if(this.checkBoxStatus==true){
+			        //     this.btnClickStatus=1;
+			        // }else if(this.checkBoxStatus==false){
+			        //     this.btnClickStatus=0;
+			        // }
+			        // // console.log(this.checkBoxStatus)
+			},
+			goThreePage:function(){
+				uni.navigateTo({
+					url: '/pages/privacypolicy/privacypolicy'
+				});
+				// this.$router.push({path:'/privacypolicy'});
 			}
 		},
 	}
@@ -636,17 +680,42 @@ page{
 		text-align: left;
 		text-indent: 280rpx;
 	}
-        .nextBtn{
-            width: 600rpx;
-            height: 100rpx;
-            background: #fc2c5d;
-            border-radius: 20rpx;
-            margin: auto;
-            margin-top: 50rpx;
-            color: #fff;
-            line-height: 100rpx;
-            text-align: center;
-        }
+	.nextBtn{
+		width: 600rpx;
+		height: 100rpx;
+		background: #fc2c5d;
+		border-radius: 20rpx;
+		margin: auto;
+		margin-top: 50rpx;
+		color: #fff;
+		line-height: 100rpx;
+		text-align: center;
+	}
+	.huiNextBtn{
+		background: #cecece;
+		cursor: pointer;
+	}
+	.checkBoxArea{
+		display: flex;
+		font-size: 28rpx;
+		margin-top: 30rpx;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		.input{
+			// margin-left: 80px;
+		}
+		.span1{
+			// margin-left: 10px;
+			width: 640rpx;
+			margin-left: 10rpx;
+		}
+		.span2{
+			text-decoration: underline;
+			margin-left: 14px;
+			cursor: pointer;
+		}
+	}
 }
 // 
 .pT_box{

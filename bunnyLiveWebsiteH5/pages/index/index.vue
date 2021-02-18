@@ -63,8 +63,8 @@
 	export default {
 		data() {
 			return {
-				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','điều khoản sử dụng','Những điều cần biết','Liên lạc chúng tôi'],
-				['Home','Product Introduction ','','Privacy policy','User Agreement','Contact Us']
+				menuList:[['Trang Chủ','Giới thiệu sản phẩm','','Những điều cần biết','điều khoản sử dụng','Liên lạc chúng tôi'],
+				['Home','Product Introduction ','','User Agreement','Privacy policy','Contact Us']
 				],
 				swiperData:['../../static/imgs/ele-m-img-01.png','../../static/imgs/ele-m-img-02.png','../../static/imgs/ele-m-img-03.png'],
 				swiperStr:['Vui mỗi ngày ','Have fun everyday'],
@@ -108,14 +108,20 @@
 					   // window.location.href ="http://pay.buny.vn/"; rel="external nofollow";
 					  break;
 					case 3:
-					 uni.navigateTo({
-					 	url: '/pages/privacypolicy/privacypolicy'
-					 });
+					uni.navigateTo({
+						url: '/pages/useragressment/useragressment'
+					});
+					 // uni.navigateTo({
+					 // 	url: '/pages/privacypolicy/privacypolicy'
+					 // });
 					  break;
 					case 4:
-						uni.navigateTo({
-							url: '/pages/useragressment/useragressment'
-						});
+					uni.navigateTo({
+						url: '/pages/privacypolicy/privacypolicy'
+					});
+						// uni.navigateTo({
+						// 	url: '/pages/useragressment/useragressment'
+						// });
 					  break;
 					case 5:
 						uni.navigateTo({
